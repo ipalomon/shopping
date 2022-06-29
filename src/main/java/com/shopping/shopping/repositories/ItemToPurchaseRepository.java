@@ -1,4 +1,7 @@
 package com.shopping.shopping.repositories;
 
-public interface ItemToPurchaseRepository {
+import com.shopping.shopping.entities.ItemToPurchase;
+import org.springframework.data.repository.CrudRepository;
+
+public interface ItemToPurchaseRepository extends CrudRepository<ItemToPurchase, Long> {
 }
