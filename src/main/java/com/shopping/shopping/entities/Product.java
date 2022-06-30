@@ -24,7 +24,7 @@ public class Product {
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "ITEM_FK")
-    private ItemToPurchase itemToPurchase;
+    private ItemToPurchase itemtopurchase;
 
     public Product(String productName, String productDescription) {
         this.productName = productName;

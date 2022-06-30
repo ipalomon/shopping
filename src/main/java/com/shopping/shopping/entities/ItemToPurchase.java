@@ -24,7 +24,7 @@ public class ItemToPurchase {
     @Column(name="PRICE_PER_UNIT")
     private double pricePerUnit;
 
-    @OneToOne(mappedBy = "itemToPurchase", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "itemtopurchase", cascade = CascadeType.ALL)
     private Product product;
 
     @ManyToMany(mappedBy = "itemToPurchases", cascade = CascadeType.ALL,

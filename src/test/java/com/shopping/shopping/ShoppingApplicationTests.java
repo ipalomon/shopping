@@ -62,15 +62,17 @@ class ShoppingApplicationTests {
 
 	@Test
 	void assignCartToCustomer(){
-		Product product1 = new Product("Papel Satinado","1000 hojas");
+		Product product1 = new Product("Papel Satinado blanco","1000 hojas");
 		Product p1 =productRepository.save(product1);
 
 		ItemToPurchase itemToPurchase1 = new ItemToPurchase(5,25);
 		ItemToPurchase it1 = itemToPurchaseRepository.save(itemToPurchase1);
 
-		itemToPurchase1.setProduct(product1);
+		product1.setItemtopurchase(itemToPurchase1);
+		productRepository.save(product1);
 
-		//Assign item to purchase to a cart
+
+		//Assign item purchase to a cart
 		ShoppingCart soppingCart1 = new ShoppingCart(100,21, 121);
 		ShoppingCart spc1 = shoppingCartRepository.save(soppingCart1);
 		soppingCart1.getItemToPurchases().add(itemToPurchase1);
@@ -78,7 +80,14 @@ class ShoppingApplicationTests {
 
 		itemToPurchase1.getShoppingCarts().add(soppingCart1);
 		itemToPurchaseRepository.save(itemToPurchase1);
+
 		// Assign cart to customer
+		Customer customer1 = new Customer("James","Lincoln Str 6765","Big Avenue 3333","James@gmail.com","1234",8);
+		Customer c1 = customerRepository.save(customer1);
+
+		soppingCart1.setCustomerToPurchase(customer1);
+		shoppingCartRepository.save(soppingCart1);
+
 	}
 
 }
