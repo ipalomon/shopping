@@ -8,14 +8,18 @@ import com.shopping.shopping.repositories.CustomerRepository;
 import com.shopping.shopping.repositories.ItemToPurchaseRepository;
 import com.shopping.shopping.repositories.ProductRepository;
 import com.shopping.shopping.repositories.ShoppingCartRepository;
+import com.shopping.shopping.services.ProductService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class ShoppingApplicationTests {
+
 
 	@Autowired
 	CustomerRepository customerRepository;
@@ -58,6 +62,7 @@ class ShoppingApplicationTests {
 		ItemToPurchase it1 = itemToPurchaseRepository.save(itemToPurchase1);
 
 		itemToPurchase1.setProduct(product1);
+		itemToPurchaseRepository.save(itemToPurchase1);
 	}
 
 	@Test
